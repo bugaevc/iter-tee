@@ -21,26 +21,31 @@
 //!
 //! // Wrap an iterator in a Tee:
 //! let mut tee1 = Tee::new(0..10);
+//!
 //! // It yields the same items:
 //! assert_eq!(tee1.next(), Some(0));
 //! assert_eq!(tee1.next(), Some(1));
+//!
 //! // Create a second Tee:
 //! let mut tee2 = tee1.clone();
+//!
 //! // Both yield the same items:
 //! assert_eq!(tee1.next(), Some(2));
 //! assert_eq!(tee2.next(), Some(2));
+//!
 //! // Create a third Tee:
 //! let mut tee3 = tee2.clone();
+//!
 //! // All three yield the same items:
 //! assert_eq!(tee1.next(), Some(3));
 //! assert_eq!(tee2.next(), Some(3));
 //! assert_eq!(tee3.next(), Some(3));
+//!
 //! // The Tees can be advanced independently:
 //! assert_eq!(tee1.next(), Some(4));
 //! assert_eq!(tee1.next(), Some(5));
 //! assert_eq!(tee2.next(), Some(4));
 //! ```
-
 
 use std::{
     collections::VecDeque,
